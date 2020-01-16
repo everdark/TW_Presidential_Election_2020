@@ -89,10 +89,10 @@ def gather_by_level(dfs):
     elif "各投開票所" in header:
       dfs_pplace.append(df)
     else:
-      counties = df
-  regions = pd.concat(dfs_region)
-  villages = pd.concat(dfs_village)
-  pplaces = pd.concat(dfs_pplace)
+      counties = df.reset_index(drop=True)
+  regions = pd.concat(dfs_region).reset_index(drop=True)
+  villages = pd.concat(dfs_village).reset_index(drop=True)
+  pplaces = pd.concat(dfs_pplace).reset_index(drop=True)
   return {"counties": counties, "regions": regions, "villages": villages, "pplaces": pplaces}
 
 
