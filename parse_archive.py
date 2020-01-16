@@ -7,7 +7,7 @@ import multiprocessing
 
 import pandas as pd
 
-from utils import parse_archive, gather_by_level
+from utils import parse_archive, gather_by_level, gather_by_class
 
 
 if __name__ == "__main__":
