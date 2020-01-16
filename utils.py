@@ -94,3 +94,20 @@ def gather_by_level(dfs):
   villages = pd.concat(dfs_village)
   pplaces = pd.concat(dfs_pplace)
   return {"counties": counties, "regions": regions, "villages": villages, "pplaces": pplaces}
+
+
+def gather_by_class(dfs):
+  """Vertically append legislative tables by class."""
+  cur_header = None
+  cur_dfs = []
+  out = dict()
+  for df in dfs:
+    if df["Header1"].iloc[0] != cur_header:
+      if len(cur_dfs):
+        out[cur_header] = pd.concat(cur_dfs)
+        cur_dfs = []
+      cur_header = df["Header1"].iloc[0]
+      cur_dfs.append(df)
+    else:
+      cur_dfs.append(df)
+  return out

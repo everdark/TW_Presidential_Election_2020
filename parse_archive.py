@@ -33,3 +33,5 @@ if __name__ == "__main__":
   # ------------------------------------ #
   inzipfile2 = "data/raw/立委-各投票所得票明細及概況(Excel檔).zip"
   dfs2 = parse_archive(inzipfile2)
+  legislative = gather_by_class(dfs2)
+  legislative.keys()
