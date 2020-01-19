@@ -102,11 +102,17 @@ def gather_by_class(dfs):
   cur_dfs = []
   out = dict()
   for df in dfs:
-    if df["Header1"].iloc[0] != cur_header:
+    # Clean up header since the format is a bit incinsistent for different types
+    if "區域立法委員" in df["Header1"].iloc[0]:
+      h1 = "第10屆區域立法委員"
+    else:
+      h1 = df["Header1"].iloc[0]
+    this_header = h1 + ":" + df["By"].iloc[0]
+    if this_header != cur_header:
       if len(cur_dfs):
         out[cur_header] = pd.concat(cur_dfs)
         cur_dfs = []
-      cur_header = df["Header1"].iloc[0]
+      cur_header = this_header
       cur_dfs.append(df)
     else:
       cur_dfs.append(df)
