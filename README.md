@@ -40,7 +40,7 @@ Here is a partial snapshot of the county-level table:
 ### Legislative Election
 
 Tables for legislative election data are grouped by the class and/or the polling area,
-resulting in 138 `.csv` tables in total:
+resulting in 117 `.csv` tables in total:
 
 ```
 legislative_第10屆區域立法委員:新北市第10選舉區.csv
@@ -159,28 +159,7 @@ legislative_第10屆平地原住民立法委員:連江縣.csv
 legislative_第10屆平地原住民立法委員:金門縣.csv
 legislative_第10屆平地原住民立法委員:雲林縣.csv
 legislative_第10屆平地原住民立法委員:高雄市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:南投縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:嘉義市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:嘉義縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:基隆市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:宜蘭縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:屏東縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:彰化縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:新北市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:新竹市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:新竹縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:桃園市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:澎湖縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:臺中市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:臺北市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:臺南市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:臺東縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:花蓮縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:苗栗縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:連江縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:金門縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:雲林縣.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員:高雄市.csv
+legislative_第10屆全國不分區及僑居國外國民立法委員.csv
 ```
 
 Here is a partial snapshot of results for `第10屆全國不分區及僑居國外國民立法委員`:

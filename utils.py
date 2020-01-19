@@ -116,4 +116,11 @@ def gather_by_class(dfs):
       cur_dfs.append(df)
     else:
       cur_dfs.append(df)
+  # Re-group party-list results.
+  party_list_key = "第10屆全國不分區及僑居國外國民立法委員"
+  pl = []
+  ple = [k for k in out.keys() if party_list_key in k]
+  for k in ple:
+    pl.append(out.pop(k))
+  out[party_list_key] = pd.concat(pl)
   return out
