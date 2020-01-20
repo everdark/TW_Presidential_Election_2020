@@ -2,10 +2,10 @@
 
 ## Raw Data Source
 
-[中央選舉委員會](https://www.cec.gov.tw/pc/zh_TW/index.html)
+[中央選舉委員會 Central Election Commission](https://www.cec.gov.tw/pc/zh_TW/index.html)
 
-+ [第15任總統(副總統)選舉](https://db.cec.gov.tw/histMain.jsp?voteSel=20200101A1&fbclid=IwAR0iO6jTQqKyJLz6FjfYy3I1QsJ4JkMbh2sKiRMofaBMUYgUkMM8eTlBAZc)
-+ [第10屆立法委員選舉](https://db.cec.gov.tw/histMain.jsp?voteSel=20200101A2&fbclid=IwAR2npewc1KR14wRtmub-ag3Fj6MkAB5gZCpVvaptCBoa7yWVfyWuQ_LuJWY)
++ [第15任總統(副總統)選舉 The 15th Taiwanese Presidential Election](https://db.cec.gov.tw/histMain.jsp?voteSel=20200101A1&fbclid=IwAR0iO6jTQqKyJLz6FjfYy3I1QsJ4JkMbh2sKiRMofaBMUYgUkMM8eTlBAZc)
++ [第10屆立法委員選舉 The 10th Taiwanese Legislative Election](https://db.cec.gov.tw/histMain.jsp?voteSel=20200101A2&fbclid=IwAR2npewc1KR14wRtmub-ag3Fj6MkAB5gZCpVvaptCBoa7yWVfyWuQ_LuJWY)
 
 ## Processed Data
 
@@ -22,10 +22,10 @@ Additional columns are created for ease of grouping and slicing.
 
 There are 4 `.csv` files representing:
 
-1. County-Level
-2. Region-Level
-3. Village-Level
-4. Polling-Place-Level
+1. County-Level 各縣市
+2. Region-Level 各鄉鎮市區
+3. Village-Level 各村里
+4. Polling-Place-Level 各投開票所
 
 Here is a partial snapshot of the county-level table:
 
@@ -40,129 +40,101 @@ Here is a partial snapshot of the county-level table:
 ### Legislative Election
 
 Tables for legislative election data are grouped by the class and/or the polling area,
-resulting in 117 `.csv` tables in total:
+resulting in 76 `.csv` tables in total.
+There are classes of the legislative election:
+
+1. Highland Aborigine 山地原住民立委
+2. Lowland Aborigine 平地原住名立委
+3. Party-List 不分區立委
+4. Constituency 分區立委
+
+Data for highland/lowland aborigine and party-list are grouped into one table per each class.
+Data for constituency is divided by district since the numbers of candidates are varying.
+Though one can reshape the original wide format into a long format to get a full single table for constituency,
+we keep the data as raw as possible.
+
+Here are all the files for legislative outcome:
 
 ```
-legislative_第10屆區域立法委員:新北市第10選舉區.csv
-legislative_第10屆區域立法委員:新北市第11選舉區.csv
-legislative_第10屆區域立法委員:新北市第12選舉區.csv
-legislative_第10屆區域立法委員:南投縣第1選舉區.csv
-legislative_第10屆區域立法委員:嘉義縣第1選舉區.csv
-legislative_第10屆區域立法委員:屏東縣第1選舉區.csv
-legislative_第10屆區域立法委員:彰化縣第1選舉區.csv
-legislative_第10屆區域立法委員:新北市第1選舉區.csv
-legislative_第10屆區域立法委員:新竹縣第1選舉區.csv
-legislative_第10屆區域立法委員:桃園市第1選舉區.csv
-legislative_第10屆區域立法委員:臺中市第1選舉區.csv
-legislative_第10屆區域立法委員:臺北市第1選舉區.csv
-legislative_第10屆區域立法委員:臺南市第1選舉區.csv
-legislative_第10屆區域立法委員:苗栗縣第1選舉區.csv
-legislative_第10屆區域立法委員:雲林縣第1選舉區.csv
-legislative_第10屆區域立法委員:高雄市第1選舉區.csv
-legislative_第10屆區域立法委員:南投縣第2選舉區.csv
-legislative_第10屆區域立法委員:嘉義縣第2選舉區.csv
-legislative_第10屆區域立法委員:屏東縣第2選舉區.csv
-legislative_第10屆區域立法委員:彰化縣第2選舉區.csv
-legislative_第10屆區域立法委員:新北市第2選舉區.csv
-legislative_第10屆區域立法委員:新竹縣第2選舉區.csv
-legislative_第10屆區域立法委員:桃園市第2選舉區.csv
-legislative_第10屆區域立法委員:臺中市第2選舉區.csv
-legislative_第10屆區域立法委員:臺北市第2選舉區.csv
-legislative_第10屆區域立法委員:臺南市第2選舉區.csv
-legislative_第10屆區域立法委員:苗栗縣第2選舉區.csv
-legislative_第10屆區域立法委員:雲林縣第2選舉區.csv
-legislative_第10屆區域立法委員:高雄市第2選舉區.csv
-legislative_第10屆區域立法委員:彰化縣第3選舉區.csv
-legislative_第10屆區域立法委員:新北市第3選舉區.csv
-legislative_第10屆區域立法委員:桃園市第3選舉區.csv
-legislative_第10屆區域立法委員:臺中市第3選舉區.csv
-legislative_第10屆區域立法委員:臺北市第3選舉區.csv
-legislative_第10屆區域立法委員:臺南市第3選舉區.csv
-legislative_第10屆區域立法委員:高雄市第3選舉區.csv
-legislative_第10屆區域立法委員:彰化縣第4選舉區.csv
-legislative_第10屆區域立法委員:新北市第4選舉區.csv
-legislative_第10屆區域立法委員:桃園市第4選舉區.csv
-legislative_第10屆區域立法委員:臺中市第4選舉區.csv
-legislative_第10屆區域立法委員:臺北市第4選舉區.csv
-legislative_第10屆區域立法委員:臺南市第4選舉區.csv
-legislative_第10屆區域立法委員:高雄市第4選舉區.csv
-legislative_第10屆區域立法委員:新北市第5選舉區.csv
-legislative_第10屆區域立法委員:桃園市第5選舉區.csv
-legislative_第10屆區域立法委員:臺中市第5選舉區.csv
-legislative_第10屆區域立法委員:臺北市第5選舉區.csv
-legislative_第10屆區域立法委員:臺南市第5選舉區.csv
-legislative_第10屆區域立法委員:高雄市第5選舉區.csv
-legislative_第10屆區域立法委員:新北市第6選舉區.csv
-legislative_第10屆區域立法委員:桃園市第6選舉區.csv
-legislative_第10屆區域立法委員:臺中市第6選舉區.csv
-legislative_第10屆區域立法委員:臺北市第6選舉區.csv
-legislative_第10屆區域立法委員:臺南市第6選舉區.csv
-legislative_第10屆區域立法委員:高雄市第6選舉區.csv
-legislative_第10屆區域立法委員:新北市第7選舉區.csv
-legislative_第10屆區域立法委員:臺中市第7選舉區.csv
-legislative_第10屆區域立法委員:臺北市第7選舉區.csv
-legislative_第10屆區域立法委員:高雄市第7選舉區.csv
-legislative_第10屆區域立法委員:新北市第8選舉區.csv
-legislative_第10屆區域立法委員:臺中市第8選舉區.csv
-legislative_第10屆區域立法委員:臺北市第8選舉區.csv
-legislative_第10屆區域立法委員:高雄市第8選舉區.csv
-legislative_第10屆區域立法委員:新北市第9選舉區.csv
-legislative_第10屆區域立法委員:嘉義市選舉區.csv
-legislative_第10屆區域立法委員:基隆市選舉區.csv
-legislative_第10屆區域立法委員:宜蘭縣選舉區.csv
-legislative_第10屆區域立法委員:新竹市選舉區.csv
-legislative_第10屆區域立法委員:澎湖縣選舉區.csv
-legislative_第10屆區域立法委員:臺東縣選舉區.csv
-legislative_第10屆區域立法委員:花蓮縣選舉區.csv
-legislative_第10屆區域立法委員:連江縣選舉區.csv
-legislative_第10屆區域立法委員:金門縣選舉區.csv
-legislative_第10屆山地原住民立法委員:南投縣.csv
-legislative_第10屆山地原住民立法委員:嘉義市.csv
-legislative_第10屆山地原住民立法委員:嘉義縣.csv
-legislative_第10屆山地原住民立法委員:基隆市.csv
-legislative_第10屆山地原住民立法委員:宜蘭縣.csv
-legislative_第10屆山地原住民立法委員:屏東縣.csv
-legislative_第10屆山地原住民立法委員:彰化縣.csv
-legislative_第10屆山地原住民立法委員:新北市.csv
-legislative_第10屆山地原住民立法委員:新竹市.csv
-legislative_第10屆山地原住民立法委員:新竹縣.csv
-legislative_第10屆山地原住民立法委員:桃園市.csv
-legislative_第10屆山地原住民立法委員:澎湖縣.csv
-legislative_第10屆山地原住民立法委員:臺中市.csv
-legislative_第10屆山地原住民立法委員:臺北市.csv
-legislative_第10屆山地原住民立法委員:臺南市.csv
-legislative_第10屆山地原住民立法委員:臺東縣.csv
-legislative_第10屆山地原住民立法委員:花蓮縣.csv
-legislative_第10屆山地原住民立法委員:苗栗縣.csv
-legislative_第10屆山地原住民立法委員:連江縣.csv
-legislative_第10屆山地原住民立法委員:金門縣.csv
-legislative_第10屆山地原住民立法委員:雲林縣.csv
-legislative_第10屆山地原住民立法委員:高雄市.csv
-legislative_第10屆平地原住民立法委員:南投縣.csv
-legislative_第10屆平地原住民立法委員:嘉義市.csv
-legislative_第10屆平地原住民立法委員:嘉義縣.csv
-legislative_第10屆平地原住民立法委員:基隆市.csv
-legislative_第10屆平地原住民立法委員:宜蘭縣.csv
-legislative_第10屆平地原住民立法委員:屏東縣.csv
-legislative_第10屆平地原住民立法委員:彰化縣.csv
-legislative_第10屆平地原住民立法委員:新北市.csv
-legislative_第10屆平地原住民立法委員:新竹市.csv
-legislative_第10屆平地原住民立法委員:新竹縣.csv
-legislative_第10屆平地原住民立法委員:桃園市.csv
-legislative_第10屆平地原住民立法委員:澎湖縣.csv
-legislative_第10屆平地原住民立法委員:臺中市.csv
-legislative_第10屆平地原住民立法委員:臺北市.csv
-legislative_第10屆平地原住民立法委員:臺南市.csv
-legislative_第10屆平地原住民立法委員:臺東縣.csv
-legislative_第10屆平地原住民立法委員:花蓮縣.csv
-legislative_第10屆平地原住民立法委員:連江縣.csv
-legislative_第10屆平地原住民立法委員:金門縣.csv
-legislative_第10屆平地原住民立法委員:雲林縣.csv
-legislative_第10屆平地原住民立法委員:高雄市.csv
-legislative_第10屆全國不分區及僑居國外國民立法委員.csv
+legislative_constituency_changhua_1.csv
+legislative_constituency_changhua_2.csv
+legislative_constituency_changhua_3.csv
+legislative_constituency_changhua_4.csv
+legislative_constituency_chiayi_city.csv
+legislative_constituency_chiayi_county_1.csv
+legislative_constituency_chiayi_county_2.csv
+legislative_constituency_hsinchu_city.csv
+legislative_constituency_hsinchu_county_1.csv
+legislative_constituency_hsinchu_county_2.csv
+legislative_constituency_hualien.csv
+legislative_constituency_kaohsiung_1.csv
+legislative_constituency_kaohsiung_2.csv
+legislative_constituency_kaohsiung_3.csv
+legislative_constituency_kaohsiung_4.csv
+legislative_constituency_kaohsiung_5.csv
+legislative_constituency_kaohsiung_6.csv
+legislative_constituency_kaohsiung_7.csv
+legislative_constituency_kaohsiung_8.csv
+legislative_constituency_keelung.csv
+legislative_constituency_kinmen.csv
+legislative_constituency_lienkiang.csv
+legislative_constituency_miaoli_1.csv
+legislative_constituency_miaoli_2.csv
+legislative_constituency_nantou_1.csv
+legislative_constituency_nantou_2.csv
+legislative_constituency_new_taipei_1.csv
+legislative_constituency_new_taipei_10.csv
+legislative_constituency_new_taipei_11.csv
+legislative_constituency_new_taipei_12.csv
+legislative_constituency_new_taipei_2.csv
+legislative_constituency_new_taipei_3.csv
+legislative_constituency_new_taipei_4.csv
+legislative_constituency_new_taipei_5.csv
+legislative_constituency_new_taipei_6.csv
+legislative_constituency_new_taipei_7.csv
+legislative_constituency_new_taipei_8.csv
+legislative_constituency_new_taipei_9.csv
+legislative_constituency_penghu.csv
+legislative_constituency_pingtung_1.csv
+legislative_constituency_pingtung_2.csv
+legislative_constituency_taichung_1.csv
+legislative_constituency_taichung_2.csv
+legislative_constituency_taichung_3.csv
+legislative_constituency_taichung_4.csv
+legislative_constituency_taichung_5.csv
+legislative_constituency_taichung_6.csv
+legislative_constituency_taichung_7.csv
+legislative_constituency_taichung_8.csv
+legislative_constituency_tainan_1.csv
+legislative_constituency_tainan_2.csv
+legislative_constituency_tainan_3.csv
+legislative_constituency_tainan_4.csv
+legislative_constituency_tainan_5.csv
+legislative_constituency_tainan_6.csv
+legislative_constituency_taipei_1.csv
+legislative_constituency_taipei_2.csv
+legislative_constituency_taipei_3.csv
+legislative_constituency_taipei_4.csv
+legislative_constituency_taipei_5.csv
+legislative_constituency_taipei_6.csv
+legislative_constituency_taipei_7.csv
+legislative_constituency_taipei_8.csv
+legislative_constituency_taitung.csv
+legislative_constituency_taoyuan_1.csv
+legislative_constituency_taoyuan_2.csv
+legislative_constituency_taoyuan_3.csv
+legislative_constituency_taoyuan_4.csv
+legislative_constituency_taoyuan_5.csv
+legislative_constituency_taoyuan_6.csv
+legislative_constituency_yilan.csv
+legislative_constituency_yulin_1.csv
+legislative_constituency_yulin_2.csv
+legislative_highland_aborigine.csv
+legislative_lowland_aborigine.csv
+legislative_partylist.csv
 ```
 
-Here is a partial snapshot of results for `第10屆全國不分區及僑居國外國民立法委員`:
+Here is a partial snapshot of the party-list result:
 
 | By     | Region   | Village   |   Place |   (1)  合一行動聯盟 |   (2)  中華統一促進黨 |   (3)  親民黨 |   (4)  安定力量 |   (5)  台灣基進 |   (6)  時代力量 |
 |:-------|:---------|:----------|--------:|--------------------:|----------------------:|--------------:|----------------:|----------------:|----------------:|

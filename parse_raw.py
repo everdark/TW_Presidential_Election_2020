@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 """Parse raw xls files of 2020 TW election results."""
 
+import sys
 import os
 import shutil
 import pandas as pd
-from utils import parse_archive, gather_by_level, gather_by_class
+from utils import parse_archive, gather_by_level, gather_by_class, zh_to_en
 
 
 if __name__ == "__main__":
@@ -38,8 +39,8 @@ if __name__ == "__main__":
   legislative = gather_by_class(dfs2)
   # Write out.
   for name, df in legislative.items():
+    name = zh_to_en(name)  # Output English filename.
     outfile = f"legislative_{name}.csv"
     df.to_csv(os.path.join(outdir2, outfile), index=False, encoding="utf-8")
-
   # Zip.
   shutil.make_archive("data/out/legislative", "zip", outdir2)

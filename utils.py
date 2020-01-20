@@ -123,4 +123,36 @@ def gather_by_class(dfs):
   for k in ple:
     pl.append(out.pop(k))
   out[party_list_key] = pd.concat(pl)
+  # Re-group highland aborigine results.
+  highland_key = "第10屆山地原住民立法委員"
+  hl = []
+  hle = [k for k in out.keys() if highland_key in k]
+  for k in hle:
+    hl.append(out.pop(k))
+  out[highland_key] = pd.concat(hl)
+  # Re-group lowland aborigine results.
+  lowland_key = "第10屆平地原住民立法委員"
+  ll = []
+  lle = [k for k in out.keys() if lowland_key in k]
+  for k in lle:
+    ll.append(out.pop(k))
+  out[lowland_key] = pd.concat(ll)
   return out
+
+
+def zh_to_en(s, map_file="data/county_name.csv"):
+  """Translate traditional Chinese to English (for output filename)."""
+  mappings = pd.read_csv(map_file)
+  mappings = dict(zip(mappings["county_zh"], mappings["county_en"].str.lower().str.replace(" ", "_")))
+  replacements = {
+    "第10屆山地原住民立法委員": "highland_aborigine",
+    "第10屆平地原住民立法委員": "lowland_aborigine",
+    "第10屆區域立法委員": "constituency",
+    "第10屆全國不分區及僑居國外國民立法委員": "partylist",
+    ":": "_",
+    "第": "_",
+    "選舉區": ""
+  }
+  replacements.update(mappings)
+  pat = re.compile("|".join(replacements.keys()))
+  return pat.sub(lambda m: replacements[re.escape(m.group(0))], s)
