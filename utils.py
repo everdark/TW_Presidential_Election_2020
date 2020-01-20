@@ -97,14 +97,21 @@ def gather_by_level(dfs):
 
 
 def gather_by_class(dfs):
-  """Vertically append legislative tables by class."""
+  """Vertically append legislative tables by class.
+  Note that aborigine and party-list are only avail in polling place level.
+  But constituency has both polling place and village level.
+  We will drop the village level since it is also contained by the polling level.
+  """
   cur_header = None
   cur_dfs = []
   out = dict()
   for df in dfs:
     # Clean up header since the format is a bit incinsistent for different types
     if "區域立法委員" in df["Header1"].iloc[0]:
-      h1 = "第10屆區域立法委員"
+      if "各投開票所" not in df["Header2"].iloc[0]:
+        continue
+      else:
+        h1 = "第10屆區域立法委員"
     else:
       h1 = df["Header1"].iloc[0]
     this_header = h1 + ":" + df["By"].iloc[0]
