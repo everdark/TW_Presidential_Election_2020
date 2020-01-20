@@ -14,6 +14,11 @@ The raw data is processed to be *analytically friendly*.
 To directly download the processed archives:
 https://github.com/everdark/TW_Presidential_Election_2020/releases/
 
+## Visualization
+
+[Visualization for TW General Election](https://everdark.github.io/k9/projects/tw_election_2020/tw_election_2020.nb.html)
+
+The notebook uses the processed data to generate visual descriptions about the election results.
 
 ### Presidential Election
 
